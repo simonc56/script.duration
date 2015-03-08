@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.duration" name="Duration script" version="0.1" provider-name="Twolaw">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language/>
+    <summary lang="en">Durations converter from MMM to H:MM</summary>
+    <description lang="en">
+      Provides movies durations in the format H:MM instead of MMM format. For exemple: 113 minutes will be converted in 1:53
+    </description>
+    <summary lang="fr">Convertisseur de durée de MMM à H:MM</summary>
+    <description lang="fr">
+      Fournie les durées de films dans le format H:MM au lieu de MMM. Par exemple: 113 minutes sera converti en 1:53
+    </description>
+    <platform>all</platform>
+    <website>https://github.com/twolaw/</website>
+    <disclaimer lang="en">Your skin has to be tweaked to use this script.</disclaimer>
+    <disclaimer lang="fr">Votre skin doit être modifié pour utiliser ce script.</disclaimer>
+  </extension>
+</addon>
