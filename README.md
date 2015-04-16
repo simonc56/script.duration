@@ -3,7 +3,7 @@ script.duration
 
 Displays movies duration in the format __hours:minutes__ instead of __minutes__ while navigating in Kodi movies library.
 
-Exemple: __108 minutes__ is now displayed __1:48__
+Exemple: __108 minutes__ is now displayed __1h48__
 
 When launched it provides those properties :
 

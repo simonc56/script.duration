@@ -28,7 +28,7 @@ def in_hours_and_min(minutes_string):
     full_minutes = int(minutes_string)
     minutes = full_minutes % 60
     hours   = full_minutes // 60
-    return str(hours) + ':' + str(minutes).zfill(2)
+    return str(hours) + 'h' + str(minutes).zfill(2)
 
 class Main:
     def __init__( self ):
