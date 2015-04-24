@@ -19,17 +19,27 @@ To use it in your skin, just call it this way :
 
 ###MyVideoNav.xml
 
-Add <onload>RunScript(script.duration,backend=True)</onload> at the beginning
+Add <onload>RunScript(script.duration,backend=True)</onload> at the beginning.
 
 ###variables.xml
 
-Add $INFO[window.Property(Duration)] labels as an alternative to $INFO[ListItem.Duration] with a System.HasAddon(script.duration) condition
+Add this new variable at the end of the file (before the </include>) :
+
+<variable name="MovieDuration">
+	<value condition="System.HasAddon(script.duration)">$INFO[window.Property(Duration)]</value>
+	<value>$INFO[ListItem.Duration]</value>
+</variable>
+
+Then, still in variables.xml, do those replacements :
+
+$INFO[ListItem.Duration]                         replaced by $VAR[MovieDuration]
+$INFO[ListItem.Duration,, $LOCALIZE[12391]]      replaced by $VAR[MovieDuration]
+$INFO[ListItem.Duration, • , $LOCALIZE[12391]]   replaced by  • $VAR[MovieDuration] (one space before and after the dot)
 
 ###DialogVideoInfo.xml
 
-Add <onload>RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload> at the beginning
-
-Add $INFO[window.Property(Duration)] label as an alternative to $INFO[ListItem.Duration] with a System.HasAddon(script.duration) condition
+Add <onload>RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload> at the beginning.
+Replace $INFO[ListItem.Duration] with $VAR[MovieDuration]
 
 ______________________
 

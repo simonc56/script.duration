@@ -2,15 +2,6 @@
 
 import xbmc, xbmcaddon, xbmcgui
 
-# in MyVideoNav.xml add <onload>RunScript(script.duration,backend=True)</onload> at beginning
-
-# in variables.xml find all movies labels containing Item.Duration and add !System.HasAddon(script.duration) condition
-# then add a value using window.Property(Duration) with System.HasAddon(script.duration) condition
-
-# in DialogVideoInfo.xml add <onload>RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload> at beginning
-# and also add <label>$INFO[window.Property(Duration)]</label> next to <label>$INFO[ListItem.Duration]</label>
-# with <visible>System.HasAddon(script.duration)</visible> and <visible>!System.HasAddon(script.duration)</visible> to the original one
-
 # Script constants
 __addon__      = xbmcaddon.Addon()
 __addonid__    = __addon__.getAddonInfo('id')
