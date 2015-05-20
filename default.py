@@ -16,10 +16,13 @@ def log(txt):
     xbmc.log(msg=message.encode("utf-8"), level=xbmc.LOGDEBUG)
 
 def in_hours_and_min(minutes_string):
-    full_minutes = int(minutes_string)
-    minutes = full_minutes % 60
-    hours   = full_minutes // 60
-    return str(hours) + 'h' + str(minutes).zfill(2)
+    try:
+        full_minutes = int(minutes_string)
+        minutes = full_minutes % 60
+        hours   = full_minutes // 60
+        return str(hours) + 'h' + str(minutes).zfill(2)
+    except:
+        return '-h--'
 
 class Main:
     def __init__( self ):

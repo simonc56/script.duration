@@ -1,2 +1,5 @@
+v0.2
+Correction of crash when duration value isn't properly writen in database
+
 v0.1
 Initial release.

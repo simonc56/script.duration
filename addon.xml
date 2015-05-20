@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.duration" name="Duration script" version="0.1" provider-name="Twolaw">
+<addon id="script.duration" name="Duration script" version="0.2" provider-name="Twolaw">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
   </requires>
@@ -10,15 +10,31 @@
     <language/>
     <summary lang="en">Durations converter from MMM to H:MM</summary>
     <description lang="en">
-      Provides movies durations in the format H:MM instead of MMM format. For exemple: 113 minutes will be converted in 1:53
+      Displays movies durations in the format H:MM instead of MMM format. For exemple: 113 minutes will be converted in 1h53
     </description>
     <summary lang="fr">Convertisseur de durée de MMM à H:MM</summary>
     <description lang="fr">
-      Fournie les durées de films dans le format H:MM au lieu de MMM. Par exemple: 113 minutes sera converti en 1:53
+      Affiche les durées de films dans le format H:MM au lieu de MMM. Par exemple: 113 minutes sera converti en 1h53
+    </description>
+    <summary lang="de">Converter Dauer des MMM auf H:MM</summary>
+    <description lang="de">
+      Zeigt Filme Dauern in H:MM statt MMM. Zum Beispiel: 113 Minuten wird in 1h53 umgewandelt werden
+    </description>
+    </description>
+    <summary lang="es">Duraciones convertidor de MMM para H:MM</summary>
+    <description lang="es">
+      Muestra películas duraciones en el formato H:MM en lugar del formato de MMM. Para exemple: 113 minutos se convertirán en 1h53
+    </description>
+    <summary lang="it">Convertitore durate da MMM a H:MM</summary>
+    <description lang="it">
+      Consente di visualizzare filmati durate nel formato H: MM anziché in formato MMM. Per Esempio: 113 minuti saranno convertiti in 1h53
     </description>
     <platform>all</platform>
     <website>https://github.com/twolaw/</website>
     <disclaimer lang="en">Your skin has to be tweaked to use this script.</disclaimer>
     <disclaimer lang="fr">Votre skin doit être modifié pour utiliser ce script.</disclaimer>
+    <disclaimer lang="de">Ihre skin hat gezwickt, um dieses Skript verwenden werden.</disclaimer>
+    <disclaimer lang="es">Su skin tiene que ser ajustado para utilizar este script.</disclaimer>
+    <disclaimer lang="it">Il tuo skin deve essere ottimizzato per utilizzare questo script.</disclaimer>
   </extension>
 </addon>
