@@ -1,51 +1,38 @@
 script.duration
 ===============
 
-Displays movies duration in hours and minutes instead of only minutes while navigating in Kodi movies library.
+Displays movies duration in hours and minutes instead of only minutes while navigating in Kodi movies library. Kodi skin has to be tweaked.
 
 Exemple: __108 minutes__ is now displayed __1h48__.
 
 When launched the script provides those properties :
 
-* `Window(videolibrary).Property(Duration)`
-* `Window(movieinformation).Property(Duration)`
+* `Window(Home).Property(Duration.HoursMinutes)`
+* `Window(Home).Property(Duration.Hours)`
+* `Window(Home).Property(Duration.Minutes)`
+* `Window(Home).Property(Duration.DBID)`
 
-To use it in your skin, just call it this way :
+##Exemple of integration in Estuary skin
 
-* `RunScript(script.duration,duration=$INFO[ListItem.Duration])` for a one shot request
-* `RunScript(script.duration,backend=True)` to run in background
+2 files need to be modified as follow :
 
-##Integration in your skin
-
-3 files need to be modified as follow :
-
-###MyVideoNav.xml
-
-Add `<onload>RunScript(script.duration,backend=True)</onload>` at the beginning.
-
-###variables.xml
+###Variables.xml
 
 Add this new variable at the end of the file (before the `</include>`) :
 ```
-<variable name="MovieDuration">
-    <value condition="System.HasAddon(script.duration)">$INFO[window.Property(Duration)]</value>
-	<value>$INFO[ListItem.Duration]</value>
+<variable name="ItemDuration">
+    <value condition="System.HasAddon(script.duration)+
+                            [Window.IsVisible(Videos) | Window.IsVisible(Movieinformation)] +
+                            !String.IsEmpty(Window(Home).Property(Duration.Hours)) +
+                            !String.IsEqual(Window(Home).Property(Duration.Hours),0) +
+                            !String.IsEmpty(Window(Home).Property(Duration.DBID)) + String.IsEqual(Window(Home).Property(Duration.DBID),ListItem.DBID)">$INFO[Window(Home).Property(Duration.HoursMinutes)]
+        </value>
+	<value>$INFO[ListItem.Duration] min</value>
 </variable>
 ```
-Then, still in variables.xml, do those replacements :
 
-`$INFO[ListItem.Duration]`                         replaced by `$VAR[MovieDuration]`
+###Includes.xml
 
-`$INFO[ListItem.Duration,, $LOCALIZE[12391]]`      replaced by `$VAR[MovieDuration]`
-
-`$INFO[ListItem.Duration, • , $LOCALIZE[12391]]`   replaced by ` • $VAR[MovieDuration]` (one space before and after the dot)
-
-###DialogVideoInfo.xml
-
-Add `<onload>RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>` at the beginning.
-
-Replace `$INFO[ListItem.Duration]` with `$VAR[MovieDuration]`
+Replace `<label>$INFO[$PARAM[infolabel_prefix]ListItem.Duration]</label>` with `<label>$VAR[ItemDuration]</label>`
 
 ______________________
-
-_This is my first kodi addon, for any suggestions, do not hesitate to email me :)_

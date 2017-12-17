@@ -1,5 +1,24 @@
-v0.2
-Correction of crash when duration value isn't properly writen in database
+[B]0.3.5[/B] (2017-07-14)
+- Reworked script, changed/removed deprecated stuff
+- New property names (see description for details)
 
-v0.1
-Initial release.
+[B]0.3.4[/B] (2017-07-11)
+- ListItem.DBID is now also set - for verification purposes (Duration.DBID)
+
+[B]0.3.3[/B] (2016-08-03)
+- Minor cleanup
+
+[B]0.3.2[/B] (2016-07-23)
+- axbmcuser MOD: Fix for KODI 17 (Krypton): "videolibrary" renamed to "videos" [default.py]
+
+[B]0.3.1[/B]
+- axbmcuser MOD: Minor improvements and optimizations
+
+[B]0.3[/B]
+- axbmcuser MOD: Script now outputs H:MM
+
+[B]0.2[/B]
+- Correction of crash when duration value isn't properly written in database
+
+[B]0.1[/B]
+- Initial release

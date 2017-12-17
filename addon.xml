@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.duration" name="Duration script" version="0.2" provider-name="Twolaw">
+<addon id="script.duration" name="Duration script" version="0.3.5" provider-name="Twolaw, axbmcuser">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
   </requires>
-  <extension point="xbmc.python.script" library="default.py">
-    <provides>executable</provides>
+  <extension library="service.py" point="xbmc.service" start="login">
   </extension>
   <extension point="xbmc.addon.metadata">
-    <language/>
     <summary lang="en">Durations converter from MMM to H:MM</summary>
     <description lang="en">
       Displays movies durations in the format H:MM instead of MMM format. For exemple: 113 minutes will be converted in 1h53
@@ -29,11 +27,15 @@
       Consente di visualizzare filmati durate nel formato H: MM anziché in formato MMM. Per Esempio: 113 minuti saranno convertiti in 1h53
     </description>
     <platform>all</platform>
+    <forum>http://forum.kodi.tv/showthread.php?tid=220753</forum>
     <website>https://github.com/twolaw/</website>
     <disclaimer lang="en">Your skin has to be tweaked to use this script.</disclaimer>
     <disclaimer lang="fr">Votre skin doit être modifié pour utiliser ce script.</disclaimer>
     <disclaimer lang="de">Ihre skin hat gezwickt, um dieses Skript verwenden werden.</disclaimer>
     <disclaimer lang="es">Su skin tiene que ser ajustado para utilizar este script.</disclaimer>
     <disclaimer lang="it">Il tuo skin deve essere ottimizzato per utilizzare questo script.</disclaimer>
+    <assets>
+			<icon>icon.png</icon>
+		</assets>
   </extension>
 </addon>
