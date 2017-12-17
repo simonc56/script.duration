@@ -7,10 +7,10 @@ Exemple: __108 minutes__ is now displayed __1h48__.
 
 When launched the script provides those properties :
 
-* `Window(Home).Property(Duration.HoursMinutes)`
-* `Window(Home).Property(Duration.Hours)`
-* `Window(Home).Property(Duration.Minutes)`
-* `Window(Home).Property(Duration.DBID)`
+* `Window(Home).Property(Durations.HoursMinutes)`
+* `Window(Home).Property(Durations.Hours)`
+* `Window(Home).Property(Durations.Minutes)`
+* `Window(Home).Property(Durations.DBID)`
 
 ### Exemple of integration in Estuary skin
 
@@ -23,10 +23,10 @@ Add this new variable at the end of the file (before the `</include>`) :
 <variable name="ItemDuration">
     <value condition="System.HasAddon(script.duration)+
         [Window.IsVisible(Videos) | Window.IsVisible(Movieinformation)] +
-        !String.IsEmpty(Window(Home).Property(Duration.Hours)) +
-        !String.IsEqual(Window(Home).Property(Duration.Hours),0) +
-        !String.IsEmpty(Window(Home).Property(Duration.DBID)) +
-        String.IsEqual(Window(Home).Property(Duration.DBID),ListItem.DBID)">$INFO[Window(Home).Property(Duration.HoursMinutes)]</value>
+        !String.IsEmpty(Window(Home).Property(Durations.Hours)) +
+        !String.IsEqual(Window(Home).Property(Durations.Hours),0) +
+        !String.IsEmpty(Window(Home).Property(Durations.DBID)) +
+        String.IsEqual(Window(Home).Property(Durations.DBID),ListItem.DBID)">$INFO[Window(Home).Property(Durations.HoursMinutes)]</value>
     <value>$INFO[ListItem.Duration] min</value>
 </variable>
 ```

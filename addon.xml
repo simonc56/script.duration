@@ -35,7 +35,7 @@
     <disclaimer lang="es">Su skin tiene que ser ajustado para utilizar este script.</disclaimer>
     <disclaimer lang="it">Il tuo skin deve essere ottimizzato per utilizzare questo script.</disclaimer>
     <assets>
-			<icon>icon.png</icon>
-		</assets>
+		<icon>icon.png</icon>
+	</assets>
   </extension>
 </addon>

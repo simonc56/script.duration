@@ -79,17 +79,17 @@ class Main:
         
         # HoursMinutes
         hours_and_minutes = get_hours_and_minutes(self.duration)
-        xbmc.executebuiltin('SetProperty(Duration.HoursMinutes,'+hours_and_minutes+',home)')
+        xbmc.executebuiltin('SetProperty(Durations.HoursMinutes,'+hours_and_minutes+',home)')
         # Hours
         hours_only = get_hours_only(self.duration)
-        xbmc.executebuiltin('SetProperty(Duration.Hours,'+hours_only+',home)')
+        xbmc.executebuiltin('SetProperty(Durations.Hours,'+hours_only+',home)')
         # Minutes
         minutes_only = get_minutes_only(self.duration)
-        xbmc.executebuiltin('SetProperty(Duration.Minutes,'+minutes_only+',home)')
+        xbmc.executebuiltin('SetProperty(Durations.Minutes,'+minutes_only+',home)')
         # DBID
-        xbmc.executebuiltin('SetProperty(Duration.DBID,'+self.dbid+',home)')
+        xbmc.executebuiltin('SetProperty(Durations.DBID,'+self.dbid+',home)')
         # InputDurationMinutes
-        xbmc.executebuiltin('SetProperty(Duration.InputDurationMinutes,'+self.duration+',home)')
+        xbmc.executebuiltin('SetProperty(Durations.InputDurationMinutes,'+self.duration+',home)')
 
 if (__name__ == "__main__"):
     Main()
