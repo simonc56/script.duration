@@ -43,21 +43,24 @@ def get_minutes_only(minutes_string):
 class Main:
     def __init__( self ):
         log("version %s started" % __version__)
-        self.run_backend()
-
-    def run_backend(self):
         self.previousitem = ""
-        while 1:
+        self.monitor = xbmc.Monitor()
+        self.run_service()
+
+    def run_service(self):
+        while not self.monitor.abortRequested():
+            if self.monitor.waitForAbort(0.2):
+                break
             if ((xbmc.getCondVisibility("Window.IsActive(Videos)") and xbmc.getCondVisibility("Window.Is(Videos)")) or (xbmc.getCondVisibility("Window.IsActive(MovieInformation)") and xbmc.getCondVisibility("Window.Is(MovieInformation)"))) and not xbmc.getCondVisibility("Container.Scrolling"):
                 self.selecteditem = xbmc.getInfoLabel("ListItem.DBID")
-                if (self.selecteditem != self.previousitem):
+                if (self.selecteditem and self.selecteditem != self.previousitem):
                     #xbmc.executebuiltin('Notification(Hello World,test,500)')
                     self.previousitem = self.selecteditem
                     
                     if (xbmc.getInfoLabel("ListItem.DBID") > -1 and not xbmc.getCondVisibility("ListItem.IsFolder")) and xbmc.getInfoLabel("ListItem.Duration") and int(float(xbmc.getInfoLabel("ListItem.Duration"))) > 0:
                         self.duration = xbmc.getInfoLabel("ListItem.Duration")
                         self.dbid = xbmc.getInfoLabel("ListItem.DBID")
-                        self.display_duration()
+                        self.set_duration_values()
             else:
                 my_container_id = xbmc.getInfoLabel("Window(Home).Property(Duration.WidgetContainerId)")
                 my_container_window = xbmc.getInfoLabel("Window(Home).Property(Duration.WidgetContainerWindowName)")
@@ -65,15 +68,15 @@ class Main:
                 if (my_container_id and my_container_window and (xbmc.getCondVisibility("Control.HasFocus("+my_container_id+")") and xbmc.getCondVisibility("Window.IsActive("+my_container_window+")") and xbmc.getCondVisibility("Window.Is("+my_container_window+")")) and not xbmc.getCondVisibility("Window.IsActive(Videos)") and not xbmc.getCondVisibility("Window.IsActive(MovieInformation)")) and not xbmc.getCondVisibility("Container("+my_container_id+").Scrolling"):
                     #xbmc.executebuiltin('Notification(Hello World,'+my_container_id+' '+my_container_window+',500)')
                     self.selecteditem = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID")
-                    if (self.selecteditem != self.previousitem):
+                    if (self.selecteditem and self.selecteditem != self.previousitem):
                         self.previousitem = self.selecteditem
                         if (xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID") > -1 and not xbmc.getCondVisibility("Container("+my_container_id+").ListItem.IsFolder")) and xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration") and int(float(xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration"))) > 0:
                             self.duration = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration")
                             self.dbid = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID")
-                            self.display_duration()
-            xbmc.sleep(200)
+                            self.set_duration_values()
+    #run_service end
 
-    def display_duration(self):
+    def set_duration_values(self):
         log('Converts: '+self.duration+' min')
         #xbmc.executebuiltin('Notification(Hello World,'+self.duration+' '+self.dbid+',250)')
         
