@@ -1,3 +1,6 @@
+[B]0.3.7[/B] (2018-04-19)
+- Minor improvements and optimizations
+
 [B]0.3.5[/B] (2017-07-14)
 - Reworked script, changed/removed deprecated stuff
 - New property names (see description for details)
