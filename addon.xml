@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.duration" name="Duration script" version="0.3.5" provider-name="Twolaw, axbmcuser">
+<addon id="script.duration" name="Duration script" version="0.3.7" provider-name="Twolaw, axbmcuser">
   <requires>
-    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="xbmc.python" version="2.24.0"/>
   </requires>
   <extension library="service.py" point="xbmc.service" start="login">
   </extension>
