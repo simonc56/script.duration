@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.duration" name="Duration script" version="0.3.7" provider-name="Twolaw, axbmcuser">
+<addon id="script.duration" name="Duration script" version="0.3.8" provider-name="Twolaw, axbmcuser">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>
   </requires>
@@ -34,8 +34,39 @@
     <disclaimer lang="de">Ihre skin hat gezwickt, um dieses Skript verwenden werden.</disclaimer>
     <disclaimer lang="es">Su skin tiene que ser ajustado para utilizar este script.</disclaimer>
     <disclaimer lang="it">Il tuo skin deve essere ottimizzato per utilizzare questo script.</disclaimer>
+    <news>[B]0.3.8[/B] (2018-04-26)
+- Minor improvements and optimizations
+
+[B]0.3.7[/B] (2018-04-19)
+- Minor improvements and optimizations
+
+[B]0.3.5[/B] (2017-07-14)
+- Reworked script, changed/removed deprecated stuff
+- New property names (see description for details)
+
+[B]0.3.4[/B] (2017-07-11)
+- ListItem.DBID is now also set - for verification purposes (Duration.DBID)
+
+[B]0.3.3[/B] (2016-08-03)
+- Minor cleanup
+
+[B]0.3.2[/B] (2016-07-23)
+- axbmcuser MOD: Fix for KODI 17 (Krypton): "videolibrary" renamed to "videos" [default.py]
+
+[B]0.3.1[/B]
+- axbmcuser MOD: Minor improvements and optimizations
+
+[B]0.3[/B]
+- axbmcuser MOD: Script now outputs H:MM
+
+[B]0.2[/B]
+- Correction of crash when duration value isn't properly written in database
+
+[B]0.1[/B]
+- Initial release
+    </news>
     <assets>
-		<icon>icon.png</icon>
-	</assets>
+      <icon>icon.png</icon>
+    </assets>
   </extension>
 </addon>
