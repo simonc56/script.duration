@@ -56,10 +56,15 @@ class Main:
                 if (self.selecteditem and self.selecteditem != self.previousitem):
                     self.previousitem = self.selecteditem
                     
-                    if (xbmc.getInfoLabel("ListItem.DBID") > -1 and not xbmc.getCondVisibility("ListItem.IsFolder")) and xbmc.getInfoLabel("ListItem.Duration") and int(float(xbmc.getInfoLabel("ListItem.Duration"))) > 0:
-                        self.duration = xbmc.getInfoLabel("ListItem.Duration")
-                        self.dbid = xbmc.getInfoLabel("ListItem.DBID")
-                        self.set_duration_values()
+                    if (xbmc.getInfoLabel("ListItem.DBID") and xbmc.getInfoLabel("ListItem.DBTYPE") and (xbmc.getInfoLabel("ListItem.DBTYPE") == 'movie' or xbmc.getInfoLabel("ListItem.DBTYPE") == 'episode') and not xbmc.getCondVisibility("ListItem.IsFolder")) and xbmc.getInfoLabel("ListItem.Duration"):
+                        try:
+                            tmpval = float(int(xbmc.getInfoLabel("ListItem.Duration")))
+                            if (tmpval > 0) :
+                                self.duration = xbmc.getInfoLabel("ListItem.Duration")
+                                self.dbid = xbmc.getInfoLabel("ListItem.DBID")
+                                self.set_duration_values()
+                        except:
+                            pass
             else:
                 my_container_id = xbmc.getInfoLabel("Window(Home).Property(Durations.WidgetContainerId)")
                 my_container_window = xbmc.getInfoLabel("Window(Home).Property(Durations.WidgetContainerWindowName)")
@@ -68,10 +73,15 @@ class Main:
                     self.selecteditem = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID")
                     if (self.selecteditem and self.selecteditem != self.previousitem):
                         self.previousitem = self.selecteditem
-                        if (xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID") > -1 and not xbmc.getCondVisibility("Container("+my_container_id+").ListItem.IsFolder")) and xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration") and int(float(xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration"))) > 0:
-                            self.duration = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration")
-                            self.dbid = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID")
-                            self.set_duration_values()
+                        if (xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID") and xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBTYPE") and (xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBTYPE") == 'movie' or xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBTYPE") == 'episode') and not xbmc.getCondVisibility("Container("+my_container_id+").ListItem.IsFolder")) and xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration"):
+                            try:
+                                tmpval = float(int(xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration")))
+                                if (tmpval > 0) :
+                                    self.duration = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.Duration")
+                                    self.dbid = xbmc.getInfoLabel("Container("+my_container_id+").ListItem.DBID")
+                                    self.set_duration_values()
+                            except:
+                                pass
     #run_service end
 
     def set_duration_values(self):
