@@ -33,6 +33,6 @@ Add this new variable at the end of the file (before the `</include>`) :
 
 #### Includes.xml
 
-Replace `<label>$INFO[$PARAM[infolabel_prefix]ListItem.Duration]</label>` with `<label>$VAR[ItemDuration]</label>`
+Replace `<label>$INFO[ListItem.Duration,, $LOCALIZE[31132]]</label>` with `<label>$VAR[ItemDuration]</label>`
 
 ______________________
